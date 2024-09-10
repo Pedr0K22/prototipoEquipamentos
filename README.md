@@ -31,7 +31,7 @@
     cd backend
 
     // Rode no terminal
-    node server.js
+    npm run dev
 ```
 
 #### Fiz algumas alterações grandes no projeto
