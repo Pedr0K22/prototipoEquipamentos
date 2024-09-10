@@ -11,6 +11,9 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "npx": "^10.2.2",
+    "prototipoequipamentos": "file:",
+    "react": "^18.3.1"
   }
 }
