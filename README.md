@@ -28,7 +28,7 @@
 * ( Back-end ) :
 ```
     // abra um novo terminal na pasta raiz do projeto
-    cd prototipoEquipamento
+    cd backend
 
     // Rode no terminal
     node server.js
