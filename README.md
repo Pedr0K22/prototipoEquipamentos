@@ -33,3 +33,19 @@
     // Rode no terminal
     node server.js
 ```
+
+#### Fiz algumas alterações grandes no projeto
+* Passei o projeto de javaScript para typescript.
+
+* Ultilizei tecnologias atuais para o projeto rodar melhor como:
+    * Fastify substitui o Express:
+        - O app.get funciona de maneira semelhante ao Express, mas o Fastify é conhecido por ser mais performático.
+
+    * Cors:
+        - O plugin de CORS (@fastify/cors) foi registrado usando o método app.register.
+
+    * Rota:
+        - A rota /api/setores foi convertida para retornar os dados de maneira assíncrona com o Fastify.
+
+    * Inicialização do Servidor:
+        - O método listen foi ajustado para funcionar com o Fastify e TypeScript, passando a porta e o host.

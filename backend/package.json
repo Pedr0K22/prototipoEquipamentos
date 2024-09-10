@@ -3,17 +3,23 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/http/server.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@fastify/cors": "^9.0.1",
     "cors": "^2.8.5",
-    "express": "^4.19.2",
+    "fastify": "^4.28.1",
     "npx": "^10.2.2",
     "prototipoequipamentos": "file:",
     "react": "^18.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.5.4",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.2"
   }
 }
