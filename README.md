@@ -49,3 +49,7 @@
 
     * Inicialização do Servidor:
         - O método listen foi ajustado para funcionar com o Fastify e TypeScript, passando a porta e o host.
+
+* Implementei o BiomeJs para fazer a formatação do código.
+
+* Apliquei as config do editor.

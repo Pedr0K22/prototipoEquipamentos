@@ -2,7 +2,15 @@ import Fastify from 'fastify';
 import cors from '@fastify/cors';
 
 const app = Fastify();
-const port = process.env.PORT || 3001;
+
+// Inicializando o servidor
+app
+  .listen({
+  port: 3001,
+  })
+  .then(() => {
+  console.log('HTTP server is running!')
+  })
 
 // Middleware
 app.register(cors);
@@ -35,11 +43,3 @@ app.get('/api/setores', async (request, reply) => {
   reply.send(data);
 });
 
-// Inicializando o servidor
-app.listen({ port: Number(port), host: '0.0.0.0' }, (err, address) => {
-  if (err) {
-    console.error(err);
-    process.exit(1);
-  }
-  console.log(`Servidor rodando na porta ${address}`);
-});
