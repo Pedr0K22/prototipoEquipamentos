@@ -17,19 +17,19 @@
 
 #### Para Testar
 * ( Front-end ) :
-'''
+```
     // No terminal rode
     cd frontend/
 
     // Depois
     npm start
-'''
+```
 
 * ( Back-end ) :
-'''
+```
     // abra um novo terminal na pasta raiz do projeto
     cd prototipoEquipamento
 
     // Rode no terminal
     node server.js
-'''
+```
