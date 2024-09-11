@@ -53,3 +53,7 @@
 * Implementei o BiomeJs para fazer a formatação do código.
 
 * Apliquei as config do editor.
+
+* Acrescentei o docker como banco de dados Postgresql.
+    - Coloquei um framework Drizzle para manipular os dados do db e fazer as querys.
+    - Ultilizo o Zod para fazer verificacão de variável de ambiente
