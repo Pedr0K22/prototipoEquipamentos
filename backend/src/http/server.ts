@@ -23,17 +23,20 @@ app.register(async (fastify) => {
 // Simulação de dados para os setores, equipamentos e componentes
 const data = [
   {
-    setor: 'Limpeza',
+    setor: 'Laminador',
     equipamentos: [
-      { nome: 'Aspirador', componentes: ['Motor', 'Filtro', 'Mangueira'] },
-      { nome: 'Lavadora', componentes: ['Bomba de água', 'Escova', 'Reservatório de sabão'] }
+      { nome: 'Rolamento', componentes: ['123456'] },
+      { nome: 'Raspador', componentes: ['654321'] },
+      { nome: 'Parafuso', componentes: ['678901'] },
+      { nome: 'Parafuso de fixação', componentes: ['109876'] },
+      { nome: 'Pistão hidráulico', componentes: ['109876'] },
     ]
   },
   {
     setor: 'Manutenção',
     equipamentos: [
-      { nome: 'Chave de Fenda', componentes: ['Ponta', 'Cabo'] },
-      { nome: 'Martelo', componentes: ['Cabeça', 'Cabo'] }
+      { nome: 'Chave de Fenda', componentes: ['Ponta'] },
+      { nome: 'Martelo', componentes: ['Cabeça'] }
     ]
   }
 ];
