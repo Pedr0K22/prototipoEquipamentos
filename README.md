@@ -57,3 +57,8 @@
 * Acrescentei o docker como banco de dados Postgresql.
     - Coloquei um framework Drizzle para manipular os dados do db e fazer as querys.
     - Ultilizo o Zod para fazer verificacão de variável de ambiente
+
+(Front-end)
+* Troquei o react apenas para usar o Vite + React
+* Coloquei o Tailwindcss para fazer a estilização
+* Fiz a configuração do biomeJs

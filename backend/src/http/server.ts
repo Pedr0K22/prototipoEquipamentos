@@ -1,7 +1,19 @@
 import Fastify from 'fastify';
-import cors from '@fastify/cors';
+import { 
+  serializerCompiler, 
+  validatorCompiler, 
+  type ZodTypeProvider 
+} from "fastify-type-provider-zod";
+import z from 'zod';
+import { createEquipament } from './routes/create-equipament';
+import fastifyCors from '@fastify/cors';
 
 const app = Fastify();
+
+app.setValidatorCompiler(validatorCompiler);
+app.setSerializerCompiler(serializerCompiler);
+
+app.register(createEquipament)
 
 // Inicializando o servidor
 app
@@ -13,7 +25,10 @@ app
   })
 
 // Middleware
-app.register(cors);
+app.register(fastifyCors, {
+  origin: '*',
+});
+
 app.register(async (fastify) => {
   fastify.addHook('preHandler', async (request, reply) => {
     // Isso adiciona middleware JSON automaticamente para Fastify
