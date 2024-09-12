@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import { Plus } from 'lucide-react';
 
 interface Equipamento {
   nome: string;
@@ -77,6 +78,14 @@ export function App() {
           </div>
         </div>
       ))}
+
+    <button
+      type="button"
+      className="px-4 py-2.5 rounded-lg bg-violet-500 text-violet-50 flex items-center gap-2 text-sm font-medium tracking-tight hover:bg-violet-600"
+    >
+      <Plus className="size-4"/>
+      Submmit
+    </button>
     </div>
   );
 }
