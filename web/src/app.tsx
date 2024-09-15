@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Plus } from 'lucide-react';
+import { Container, Plus } from 'lucide-react';
 import { Button } from './components/ui/button';
 
 interface Equipamento {
@@ -49,12 +49,14 @@ export function App() {
   }
 
   return (
-    <div className="container mx-auto py-10">
+
+
+    <div className="r mx-auto py-10">
       <h1 className="text-3xl font-bold text-center mb-8">
         Setores e Equipamentos da Empresa
       </h1>
 
-      {setores.map((setor, idx) => (
+      {setores.map((setor,idx) => (
         <div key={idx} className="mb-10">
           <h2 className="text-2xl font-semibold mb-4">{setor.setor}</h2>
           <div className="overflow-x-auto">
@@ -78,14 +80,11 @@ export function App() {
             </table>
           </div>
         </div>
-      ))}
-
-      <Button>
-        <Plus className="size-4"/>
-          Submmit
-      </Button>
+      ))}     
     </div>
+    
   );
+
 }
 
 export default App;
