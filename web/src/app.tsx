@@ -1,62 +1,68 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Container, Plus } from 'lucide-react';
-import { Button } from './components/ui/button';
-import Login from './pages/login';
+import React, { useState } from 'react';
+import { Login } from './pages/login'; // Importa o componente de Login
+//import { AppContent } from './AppContent'; // Importe ou defina seu conteúdo principal
 
-interface Equipamento {
-  nome: string;
-  componentes: string[];
-}
+// interface Equipamento {
+//   nome: string;
+//   componentes: string[];
+// }
 
-interface Setor {
-  setor: string;
-  equipamentos: Equipamento[];
-}
+// interface Setor {
+//   setor: string;
+//   equipamentos: Equipamento[];
+// }
 
-export function App() {
-  const [setores, setSetores] = useState<Setor[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
 
-  useEffect(() => {
-    // Fetch dos dados da API
-    axios.get<Setor[]>('http://localhost:3001/api/setores')
-      .then(response => {
-        setSetores(response.data);
-        setLoading(false); // Dados carregados
-      })
-      .catch(error => {
-        console.error('Erro ao buscar dados:', error);
-        setError('Erro ao carregar os dados');
-        setLoading(false);
-      });
-  }, []);
+ export function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
-  if (loading) {
-    return (
-      <div className="container mx-auto text-center py-10">
-        <h2 className="text-xl font-semibold">Carregando dados...</h2>
-      </div>
-    );
-  }
+  //setores
+  // const [setores, setSetores] = useState<Setor[]>([]);
+  // const [loading, setLoading] = useState(true);
+  // const [error, setError] = useState<string | null>(null);
 
-  if (error) {
-    return (
-      <div className="container mx-auto text-center py-10">
-        <h2 className="text-xl font-semibold text-red-500">{error}</h2>
-      </div>
-    );
-  }
+  // useEffect(() => {
+  //   // Fetch dos dados da API
+  //   axios.get<Setor[]>('http://localhost:3001/api/setores')
+  //     .then(response => {
+  //       setSetores(response.data);
+  //       setLoading(false); // Dados carregados
+  //     })
+  //     .catch(error => {
+  //       console.error('Erro ao buscar dados:', error);
+  //       setError('Erro ao carregar os dados');
+  //       setLoading(false);
+  //     });
+  // }, []);
+
+  // if (loading) {
+  //   return (
+  //     <div className="container mx-auto text-center py-10">
+  //       <h2 className="text-xl font-semibold">Carregando dados...</h2>
+  //     </div>
+  //   );
+  // }
+
+  // if (error) {
+  //   return (
+  //     <div className="container mx-auto text-center py-10">
+  //       <h2 className="text-xl font-semibold text-red-500">{error}</h2>
+  //     </div>
+  //   );
+  // }
+
+              //const token = localStorage.getItem('token');
+
+              // if (token) {
+              //   return <AppContent />;
+              // }
 
   return (
-
     <div>
       <Login />
     </div>
 
-
-    // <div className="r mx-auto py-10">
+      // <div className="r mx-auto py-10">
     //   <h1 className="text-3xl font-bold text-center mb-8">
     //     Setores e Equipamentos da Empresa
     //   </h1>
@@ -87,9 +93,7 @@ export function App() {
     //     </div>
     //   ))}     
     // </div>
-    
   );
-
 }
 
-export default App;
+export default App; // Aqui estamos exportando o App corretamente
