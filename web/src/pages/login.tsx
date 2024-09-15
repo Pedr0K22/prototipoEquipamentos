@@ -1,36 +1,44 @@
 // Acesso ao APP
-import React, { useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Button } from "../components/ui/button";
+import '../index.css';
+
+// definindo o tipo da resposta de login
+interface LoginResponse {
+  token: string;
+}
 
 // Login do Usuário
 export function Login(){
-const [ username, setUsername ] = useState ('');
-const [ password, setPassword ] = useState ('');
-const [ error, setError ] = useState<string | null>(null);
-const [ success, setSucess ] = useState (false);
+  const [ username, setUsername ] = useState ('');
+  const [ password, setPassword ] = useState ('');
+  const [ error, setError ] = useState<string | null>(null);
+  const [ success, setSuccess ] = useState (false);
 
-const handleLogin = async (event: React.FormEvent) => {
+  const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
     setError(null);
-    
-    try {
-        const response = await axios.post('http://localhost:3001/login', {
-            username,
-            password,
-        }); 
-        
-        //localStorage.setItem('token', response.data.token);
-        setSucess(true);
-    } catch (error) {
-        console.error('Voce não esta autorizado.', error);
-        setError('Usuário ou senha incorreta.');
-    }
-};
 
-return (
-    <div className="flex items-center justify-center h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-96">
+    try {
+      // Especificar que a resposta será do tipo LoginResponse
+      const response = await axios.post<LoginResponse>('http://localhost:3001/login', {
+        username,
+        password,
+      }); 
+      
+      // Agora o TypeScript sabe que response.data.token existe
+      localStorage.setItem('token', response.data.token);
+      setSuccess(true);
+    } catch (error) {
+      console.error('Você não está autorizado.', error);
+      setError('Usuário ou senha incorretos.');
+    }
+  };
+
+  return (
+    <div className="flex items-center justify-center h-screen">
+      <div className="bg-indigo-700 p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-bold text-center mb-6">Login</h2>
 
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
@@ -38,7 +46,7 @@ return (
 
         <form onSubmit={handleLogin}>
           <div className="mb-4">
-            <label className="block text-gray-700">Usuário</label>
+            <label className="block text-black">Usuário</label>
             <input
               type="text"
               value={username}
@@ -49,7 +57,7 @@ return (
           </div>
 
           <div className="mb-6">
-            <label className="block text-gray-700">Senha</label>
+            <label className="block text-black">Senha</label>
             <input
               type="password"
               value={password}
@@ -59,16 +67,16 @@ return (
             />
           </div>
 
-          <button
+          <Button
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
           >
             Entrar
-          </button>
+          </Button>
         </form>
       </div>
     </div>
   );
-
 }
+
 export default Login;
