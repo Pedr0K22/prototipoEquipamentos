@@ -53,8 +53,17 @@ const data = [
       { nome: 'Chave de Fenda', componentes: ['Ponta'] },
       { nome: 'Martelo', componentes: ['Cabeça'] }
     ]
+  },
+  {
+    setor: 'Batata',
+    equipamentos: [
+      { nome: 'frita', componentes: ['Óleo'] },
+      { nome: 'Martelo', componentes: ['Cabeça'] }
+    ]
   }
+
 ];
+
 
 // Rota para pegar todos os setores com equipamentos e componentes
 app.get('/api/setores', async (request, reply) => {
