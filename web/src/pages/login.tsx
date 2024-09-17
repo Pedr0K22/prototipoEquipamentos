@@ -45,27 +45,29 @@ export function Login(){
         {success && <p className="text-green-500 text-center mb-4">Login bem-sucedido!</p>}
 
         <form onSubmit={handleLogin}>
-          <div className="mb-4">
-            <label className="block text-black">Usuário</label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
+        <div className="mb-4">
+          <label htmlFor="username" className="block text-black">Usuário</label>
+          <input
+            type="text"
+            id="username" // O ID aqui associa o input ao label
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
+            required
+          />
+        </div>
 
-          <div className="mb-6">
-            <label className="block text-black">Senha</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full px-3 py-2 border rounded"
-              required
-            />
-          </div>
+        <div className="mb-6">
+          <label htmlFor="password" className="block text-black">Senha</label>
+          <input
+            type="password"
+            id="password" // O ID aqui associa o input ao label
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-3 py-2 border rounded"
+            required
+          />
+        </div>
 
           <Button
             type="submit"
