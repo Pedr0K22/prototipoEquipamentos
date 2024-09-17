@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+//import { useState } from 'react';
 import { Login } from './pages/login'; // Importa o componente de Login
 //import { AppContent } from './AppContent'; // Importe ou defina seu conteúdo principal
 
@@ -14,7 +14,7 @@ import { Login } from './pages/login'; // Importa o componente de Login
 
 
  export function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  //const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
 
   //setores
   // const [setores, setSetores] = useState<Setor[]>([]);
