@@ -1,11 +1,8 @@
 import Fastify from 'fastify';
 import { 
   serializerCompiler, 
-  validatorCompiler, 
-  type ZodTypeProvider 
+  validatorCompiler 
 } from "fastify-type-provider-zod";
-import z from 'zod';
-import { createEquipament } from './routes/create-equipament';
 import fastifyCors from '@fastify/cors';
 import fastifyJwt from '@fastify/jwt';
 import fastifyFormBody from '@fastify/formbody';
@@ -32,7 +29,7 @@ app.decorate("authenticate", async (request, reply) => {
   try {
     await request.jwtVerify();
   } catch (err) {
-    reply.send(err);
+    reply.status(401).send({ message: 'Token inválido ou ausente.' });
   }
 });
 
@@ -43,7 +40,7 @@ app.post('/login', async (request, reply) => {
   // Verifica se o usuário e senha estão corretos
   if (username === USERNAME && password === PASSWORD) {
     // Se estiver correto, gera o token JWT
-    const token = app.jwt.sign({ username });
+    const token = app.jwt.sign({ username }, { expiresIn: '1m' }); // Token expira em 1 hora
     return reply.send({ token });
   }
 
@@ -51,12 +48,17 @@ app.post('/login', async (request, reply) => {
   return reply.status(401).send({ message: 'Usuário ou senha incorretos' });
 });
 
-// Rota protegida, apenas acessível com o JWT
-app.get('/protected', { preHandler: [app.authenticate] }, async (request, reply) => {
-  return reply.send({ message: 'Você acessou uma rota protegida!' });
+// Rota protegida do dashboard, acessível apenas com o JWT
+app.get('/dashboard', { preHandler: [app.authenticate] }, async (request, reply) => {
+  const dashboardData = {
+    message: "Bem-vindo ao dashboard protegido!",
+    // Outros dados relevantes do dashboard...
+  };
+  
+  reply.send(dashboardData);
 });
 
-// Rota para pegar todos os setores com equipamentos e componentes
+// Rota para pegar todos os setores com equipamentos e componentes (pública)
 app.get('/api/setores', async (request, reply) => {
   const data = [
     {
@@ -84,8 +86,8 @@ app.get('/api/setores', async (request, reply) => {
 // Inicializando o servidor
 app
   .listen({
-  port: 3001,
+    port: 3001,
   })
   .then(() => {
-  console.log('HTTP server is running!')
+    console.log('HTTP server is running!')
   })
