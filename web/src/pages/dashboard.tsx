@@ -39,6 +39,11 @@ export function Dashboard() {
     fetchData();
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Remove o token do localStorage
+    window.location.reload(); // Recarrega a página
+  };
+
   if (error) {
     return <p className="text-red-500">{error}</p>;
   }
@@ -61,6 +66,12 @@ export function Dashboard() {
           </div>
         ))
       )}
+
+      <ul className="mt-6">
+        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+        <li className="cursor-pointer hover:bg-gray-700 p-2 rounded" onClick={handleLogout}>Logout</li>
+        {/* Adicione mais opções aqui */}
+      </ul>
     </div>
   );
 }
