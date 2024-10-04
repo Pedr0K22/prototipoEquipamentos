@@ -9,7 +9,7 @@ import axios from "axios";
 // }
 
 interface Setor {
-  id: BigInt;
+  id: bigint;
   nome: string;
   // equipamentos: Equipamento[];
 }
@@ -58,8 +58,6 @@ export function Dashboard() {
         <p>Carregando...</p>
       ) : (
         data.map((setor) => (
-
-          // Aqui não consegui tirar esse erro pois não entendi essa propriedade "key"
           <div key={setor.id} className="mb-4">
             <h3 className="text-xl font-semibold">{setor.nome}</h3>
             {/* <ul className="list-disc ml-6">
@@ -81,3 +79,4 @@ export function Dashboard() {
 }
 
 export default Dashboard;
+

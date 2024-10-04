@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "server.ts",
   "scripts": {
-    "dev": "tsx watch --env-file .env src/http/server.ts"
+    "dev": "tsx watch --env-file .env src/http/server.ts",
+    "build": "tsup src"
   },
   "keywords": [],
   "author": "",
@@ -31,3 +32,4 @@
     "typescript": "^5.6.2"
   }
 }
+
