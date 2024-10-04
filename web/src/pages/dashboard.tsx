@@ -3,14 +3,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 // Interfaces para tipagem dos dados
-interface Equipamento {
-  nome: string;
-  componentes: string[];
-}
+// interface Equipamento {
+//   nome: string;
+//   componentes: string[];
+// }
 
 interface Setor {
-  setor: string;
-  equipamentos: Equipamento[];
+  id: BigInt;
+  nome: string;
+  // equipamentos: Equipamento[];
 }
 
 export function Dashboard() {
@@ -29,6 +30,7 @@ export function Dashboard() {
         const response = await axios.get<Setor[]>('http://localhost:3001/api/setores', {
           headers: { Authorization: `Bearer ${token}` }, 
         });
+        console.log(response.data)
         setData(response.data);
       } catch (error) {
         console.error('Erro ao buscar dados do backend:', error);
@@ -56,13 +58,15 @@ export function Dashboard() {
         <p>Carregando...</p>
       ) : (
         data.map((setor) => (
-          <div key={setor.setor} className="mb-4">
-            <h3 className="text-xl font-semibold">{setor.setor}</h3>
-            <ul className="list-disc ml-6">
+
+          // Aqui não consegui tirar esse erro pois não entendi essa propriedade "key"
+          <div key={setor.id} className="mb-4">
+            <h3 className="text-xl font-semibold">{setor.nome}</h3>
+            {/* <ul className="list-disc ml-6">
               {setor.equipamentos.map((equipamento: Equipamento) => (
                 <li key={equipamento.nome}>{equipamento.nome}</li>
               ))}
-            </ul>
+            </ul> */}
           </div>
         ))
       )}

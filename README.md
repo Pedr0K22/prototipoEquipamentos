@@ -58,6 +58,9 @@
     - Coloquei um framework Drizzle para manipular os dados do db e fazer as querys.
     - Ultilizo o Zod para fazer verificacão de variável de ambiente
 
+(Gustavo)
+* Conexão com postgrees estabelecida buscando os dados de autenticação do arquivo .env
+
 (Front-end)
 * Troquei o react apenas para usar o Vite + React
 * Coloquei o Tailwindcss para fazer a estilização
