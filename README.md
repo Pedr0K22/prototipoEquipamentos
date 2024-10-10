@@ -65,3 +65,7 @@
 * Troquei o react apenas para usar o Vite + React
 * Coloquei o Tailwindcss para fazer a estilização
 * Fiz a configuração do biomeJs
+
+(Front-end)
+* Criando padronizações de templates para o App
+* Inserido navbar e um menu interativo
