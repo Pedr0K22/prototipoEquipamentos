@@ -1,9 +1,8 @@
-import { useState } from "react";
-import axios from "axios";
-import Nav  from "../components/parts/nav";
+import LayoutDashboard from "../layouts/dashboard";
+
 
 export function Teste() {
-    return (
-        Nav()
-    )
+	return <LayoutDashboard>
+		Conteúdo
+	</LayoutDashboard>;
 }

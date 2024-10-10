@@ -8,6 +8,7 @@ import {
 import Login from "./pages/login";
 import Dashboard from "./pages/dashboard";
 import { Teste } from "./pages/teste";
+// import { Teste } from "./pages/teste";
 
 // Função para verificar se o token JWT está no localStorage
 const isAuthenticated = () => !!localStorage.getItem("token");
@@ -34,9 +35,6 @@ export default function App() {
 				{/* Página de Dashboard protegida */}
 
 				<Route path="/teste" element={<Teste />} />
-
-        
-
 			</Routes>
 		</Router>
 	);

@@ -1,5 +1,24 @@
-export function LayoutDashboard() {
+import Nav from "../components/ui/nav";
+import type { ReactNode } from 'react';
+
+interface LayoutDashboardProps {
+    children: ReactNode;
+}
+
+
+const LayoutDashboard = ({children}: LayoutDashboardProps) => {
     return (
-        <h1>Teste</h1>
+        <>
+        <Nav />
+
+        <div id="content" className="p-5">
+            {children}
+        </div>
+        
+        </>
+        
+        
     )
 }
+
+export default LayoutDashboard;
