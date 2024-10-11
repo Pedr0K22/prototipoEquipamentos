@@ -24,11 +24,11 @@ export default function Nav() {
 
 					<DrawerContent className="bg-zinc-950">
 						<DrawerHeader>
-							<DrawerTitle>O que deseja ver?</DrawerTitle>
-							<DrawerDescription>Escolha aqui</DrawerDescription>
+							<DrawerTitle className="text-center">O que deseja ver?</DrawerTitle>
+							<DrawerDescription  className="text-center">Escolha aqui</DrawerDescription>
 						</DrawerHeader>
-						<DrawerFooter className="">
-							<Link className="teste">
+						<DrawerFooter className="justify-center">
+							<Link className="text-center">
 								Teste
 							</Link>
 

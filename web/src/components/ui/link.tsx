@@ -3,13 +3,13 @@ import { forwardRef, type ComponentProps } from 'react'
 
 interface LinkProps {
     children: ReactNode,
-    props: ComponentProps<'a'>
+    className: string
 }
 
-export default function Link({children, ...props}: LinkProps) {
+export default function Link({children, className}: LinkProps) {
     return (
         <>
-            <a {...props} className='underline  decoration-solid' href="/dashboard">
+            <a className={`underline decoration-solid ${className}`} href="/dashboard">
                 {children}
             </a>
         </>
