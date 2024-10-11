@@ -1,13 +1,15 @@
 import type { ReactNode } from 'react';
+import { forwardRef, type ComponentProps } from 'react'
 
 interface LinkProps {
-    children: ReactNode
+    children: ReactNode,
+    props: ComponentProps<'a'>
 }
 
-export default function Link({children}: LinkProps) {
+export default function Link({children, ...props}: LinkProps) {
     return (
         <>
-            <a className='underline  decoration-solid' href="/dashboard">
+            <a {...props} className='underline  decoration-solid' href="/dashboard">
                 {children}
             </a>
         </>

@@ -27,14 +27,14 @@ export default function Nav() {
 							<DrawerTitle>O que deseja ver?</DrawerTitle>
 							<DrawerDescription>Escolha aqui</DrawerDescription>
 						</DrawerHeader>
-						<DrawerFooter>
-							<Link>
+						<DrawerFooter className="">
+							<Link className="teste">
 								Teste
 							</Link>
 
-							<DrawerClose className="content-center">
-								<Button>Sair</Button>
-							</DrawerClose>
+							
+							<DrawerClose>Cancelar</DrawerClose>
+							
 						</DrawerFooter>
 					</DrawerContent>
 				</Drawer>
