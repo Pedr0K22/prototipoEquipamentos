@@ -2,7 +2,12 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
-
+import { SetorA } from './pages/setorA';
+import { SetorB } from './pages/setorB';
+import { SetorC } from './pages/setorC';
+import { SetorD } from './pages/setorD';
+import { SetorE } from './pages/setorE';
+import { SetorF } from './pages/setorF';
 // Função para verificar se o token JWT está no localStorage
 const isAuthenticated = () => !!localStorage.getItem('token');
 
@@ -24,7 +29,13 @@ export default function App() {
             </ProtectedRoute>
           }
         /> {/* Página de Dashboard protegida */}
+        <Route path='/setorA' element={<SetorA/>}></Route>
+        <Route path='/setorB' element={<SetorB/>}></Route>
+        <Route path='/setorC' element={<SetorC/>}></Route>
+        <Route path='/setorD' element={<SetorD/>}></Route>
+        <Route path='/setorE' element={<SetorE/>}></Route>
+        <Route path='/setorF' element={<SetorF/>}></Route>
       </Routes>
     </Router>
   );
-}
+}""
