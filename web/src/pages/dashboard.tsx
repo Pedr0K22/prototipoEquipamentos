@@ -1,6 +1,8 @@
 // src/pages/Dashboard.tsx
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Setores from "./setores";
+
 
 // Interfaces para tipagem dos dados
 // interface Equipamento {
@@ -53,7 +55,7 @@ export function Dashboard() {
   return (
     <div className="container mx-auto p-8">
       <h2 className="text-3xl font-bold mb-6">Setores e Equipamentos</h2>
-
+      <Setores></Setores>
       {data.length === 0 ? (
         <p>Carregando...</p>
       ) : (
