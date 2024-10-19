@@ -10,4 +10,5 @@ export const client = postgres(env.DATABASE_URL, {
     username             : env.DATABASE_USERNAME,            
     password             : env.DATABASE_PASSWORD,            
   });
+  
 export const db = drizzle(client, {schema});
