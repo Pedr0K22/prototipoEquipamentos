@@ -1,4 +1,4 @@
-// src/pages/Dashboard.tsx
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import LayoutDashboard from "../layouts/dashboard";
@@ -9,13 +9,12 @@ import { Button } from "../components/ui/button";
 interface Setor {
 	id: bigint;
 	name: string;
-	// equipamentos: Equipamento[];
 }
 
 export function Dashboard() {
 	const [data, setData] = useState<Setor[]>([]);
 	const [error, setError] = useState<string | null>(null);
-
+  
 	useEffect(() => {
 		const fetchData = async () => {
 			const token = localStorage.getItem("token");
@@ -23,6 +22,9 @@ export function Dashboard() {
 				setError("token não encontrado");
 				return;
 			}
+
+     };
+
 
 			try {
 				const response = await axios.get<Setor[]>(
