@@ -69,11 +69,3 @@
 (Front-end)
 * Criando padronizações de templates para o App
 * Inserido navbar e um menu interativo
-
-(Gustavo)
-(Back-end)
-* Criada setoresTable migration
-* Criado o seeder para os setores
-
-(Front-End)
-* 'handleLogout' que estava no 'dashboard', foi movido para o componente 'nav', ele utiliza do componente 'link' para sempre aparecer a opção 'Sair' para o usuário.

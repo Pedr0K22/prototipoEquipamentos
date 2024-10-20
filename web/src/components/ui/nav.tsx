@@ -12,18 +12,10 @@ import {
 } from "./drawer";
 import Link from "./link";
 
-interface NavProps {
-	title: string;
-}
-
-export default function Nav({ title }: NavProps) {
-	const handleLogout = () => {
-		localStorage.removeItem("token"); // Remove o token do localStorage
-		window.location.reload(); // Recarrega a página
-	};
+export default function Nav() {
 	return (
 		<div className="flex justify-between p-5">
-			<div className="font-black content-center">{title}</div>
+			<div className="font-black content-center">Titulo</div>
 			<div className="menu">
 				<Drawer>
 					<DrawerTrigger className="bg-transparent border hover:bg-white hover:text-black transition-all p-2 rounded-lg">
@@ -32,24 +24,17 @@ export default function Nav({ title }: NavProps) {
 
 					<DrawerContent className="bg-zinc-950">
 						<DrawerHeader>
-							<DrawerTitle className="text-center">
-								O que deseja ver?
-							</DrawerTitle>
-							<DrawerDescription className="text-center">
-								Escolha aqui
-							</DrawerDescription>
+							<DrawerTitle className="text-center">O que deseja ver?</DrawerTitle>
+							<DrawerDescription  className="text-center">Escolha aqui</DrawerDescription>
 						</DrawerHeader>
 						<DrawerFooter className="justify-center">
-							
-							<Link
-								className="text-center cursor-pointer hover:bg-gray-700 p-2 rounded" 
-								onClick={handleLogout}>
-								Sair
+							<Link className="text-center">
+								Teste
 							</Link>
 
-					
-
+							
 							<DrawerClose>Cancelar</DrawerClose>
+							
 						</DrawerFooter>
 					</DrawerContent>
 				</Drawer>
