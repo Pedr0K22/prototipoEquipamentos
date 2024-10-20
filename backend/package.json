@@ -4,7 +4,10 @@
   "main": "server.ts",
   "scripts": {
     "dev": "tsx watch --env-file .env src/http/server.ts",
-    "build": "tsup src"
+    "build": "tsup src",
+    "drizzle-kit:generate": "drizzle-kit generate",
+    "drizzle-kit:push": "drizzle-kit push",
+    "drizzle-kit:seed": "ts-node ./src/db/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -15,21 +18,26 @@
     "@fastify/formbody": "^7.4.0",
     "@fastify/jwt": "^8.0.1",
     "@paralleldrive/cuid2": "^2.2.2",
+    "dotenv": "^16.4.5",
     "drizzle-orm": "^0.33.0",
+    "esbuild-register": "^3.6.0",
     "fastify": "^4.28.1",
     "fastify-type-provider-zod": "^2.0.0",
     "npx": "^10.2.2",
+    "pg": "^8.13.0",
     "postgres": "^3.4.4",
     "prototipoequipamentos": "file:",
     "react": "^18.3.1",
+    "ts-node": "^10.9.2",
     "zod": "^3.23.8"
   },
   "devDependencies": {
     "@biomejs/biome": "1.8.3",
+    "@faker-js/faker": "^9.0.3",
     "@types/node": "^22.5.4",
+    "@types/pg": "^8.11.10",
     "drizzle-kit": "^0.24.2",
     "tsx": "^4.19.0",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.3"
   }
 }
-

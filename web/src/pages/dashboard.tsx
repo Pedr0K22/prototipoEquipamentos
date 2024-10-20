@@ -1,84 +1,69 @@
-// src/pages/Dashboard.tsx
+
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Setores from "./setores";
-
+import LayoutDashboard from "../layouts/dashboard";
+import { Button } from "../components/ui/button";
 
 // Interfaces para tipagem dos dados
-// interface Equipamento {
-//   nome: string;
-//   componentes: string[];
-// }
 
 interface Setor {
-  id: bigint;
-  nome: string;
-  // equipamentos: Equipamento[];
+	id: bigint;
+	name: string;
 }
 
 export function Dashboard() {
-  const [data, setData] = useState<Setor[]>([]);
-  const [error, setError] = useState<string | null>(null);
+	const [data, setData] = useState<Setor[]>([]);
+	const [error, setError] = useState<string | null>(null);
+  
+	useEffect(() => {
+		const fetchData = async () => {
+			const token = localStorage.getItem("token");
+			if (!token) {
+				setError("token não encontrado");
+				return;
+			}
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) {
-        setError("token não encontrado"); 
-        return;
-      }
-
-    //   try {
-    //     const response = await axios.get<Setor[]>('http://localhost:3001/api/setores', {
-    //       headers: { Authorization: `Bearer ${token}` }, 
-    //     });
-    //     console.log(response.data)
-    //     setData(response.data);
-    //   } catch (error) {
-    //     console.error('Erro ao buscar dados do backend:', error);
-    //     setError('Erro ao carregar dados');
-    //   }
      };
 
-    fetchData();
-  }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem('token'); // Remove o token do localStorage
-    window.location.reload(); // Recarrega a página
-  };
+			try {
+				const response = await axios.get<Setor[]>(
+					"http://localhost:3001/api/setores",
+					{
+						headers: { Authorization: `Bearer ${token}` },
+					},
+				);
+				console.log(response.data);
+				setData(response.data);
+			} catch (error) {
+				console.error("Erro ao buscar dados do backend:", error);
+				setError("Erro ao carregar dados");
+			}
+		};
 
-  if (error) {
-    return <p className="text-red-500">{error}</p>;
-  }
+		fetchData();
+	}, []);
 
-  return (
-    <div className="container mx-auto p-8">
-      <h2 className="text-3xl font-bold mb-6">Setores e Equipamentos</h2>
-      <Setores></Setores>
-      {data.length === 0 ? (
-        <p>Carregando...</p>
-      ) : (
-        data.map((setor) => (
-          <div key={setor.id} className="mb-4">
-            <h3 className="text-xl font-semibold">{setor.nome}</h3>
-            {/* <ul className="list-disc ml-6">
-              {setor.equipamentos.map((equipamento: Equipamento) => (
-                <li key={equipamento.nome}>{equipamento.nome}</li>
-              ))}
-            </ul> */}
-          </div>
-        ))
-      )}
+	if (error) {
+		return <p className="text-red-500">{error}</p>;
+	}
 
-      <ul className="mt-6">
-        {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
-        <li className="cursor-pointer hover:bg-gray-700 p-2 rounded" onClick={handleLogout}>Logout</li>
-        {/* Adicione mais opções aqui */}
-      </ul>
-    </div>
-  );
+	return (
+		<LayoutDashboard title="Setores">
+			<div className="container mx-auto">
+				{data.length === 0 ? (
+					<p className="text-center">Carregando...</p>
+				) : (
+					<div className="grid gap-4 grid-cols-2">
+						{data.map((setor) => (
+							<Button key={setor.id} className="">{setor.name}</Button>
+						))}
+					</div>
+				)}
+			</div>
+		</LayoutDashboard>
+
+	);
 }
 
 export default Dashboard;
-
