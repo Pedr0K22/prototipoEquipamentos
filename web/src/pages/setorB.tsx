@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { Button } from "../components/ui/button";
+import Nav from "../components/ui/nav";
 
 
 export function SetorB() {
@@ -36,6 +37,7 @@ export function SetorB() {
    </tbody>
   </table>
   <Button onClick={voltar}>Voltar</Button>
+  <Nav />
   </>
   )
 };
