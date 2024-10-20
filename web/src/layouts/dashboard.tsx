@@ -3,14 +3,13 @@ import type { ReactNode } from 'react';
 
 interface LayoutDashboardProps {
     children: ReactNode;
-    title: string;
 }
 
 
-const LayoutDashboard = ({children, title}: LayoutDashboardProps) => {
+const LayoutDashboard = ({children}: LayoutDashboardProps) => {
     return (
         <>
-        <Nav title={`${title}`} />
+        <Nav />
 
         <div id="content" className="p-5">
             {children}

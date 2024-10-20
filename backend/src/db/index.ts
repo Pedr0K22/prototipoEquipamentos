@@ -1,4 +1,4 @@
 import {db} from './db';
 
 
-export const resultSetores = db.query.setoresTable.findMany()
+export const resultSetores = db.query.setores.findMany()
