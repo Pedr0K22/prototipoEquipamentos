@@ -1,8 +1,9 @@
-
 import { Button } from "../components/ui/button";
 import { useNavigate } from 'react-router-dom';
 import Nav from "../components/ui/nav";
 
+export function  Setores() {
+    const navigate = useNavigate();
 
     const handleButtonClickA = () => {
       navigate('/setorA');  // Caminho para onde quer redirecionar

@@ -1,16 +1,15 @@
-import type { MouseEvent, MouseEventHandler, ReactHTMLElement, ReactNode } from 'react';
+import type { ReactNode } from 'react';
 import { forwardRef, type ComponentProps } from 'react'
 
 interface LinkProps {
     children: ReactNode,
-    className: string,
-    onClick: MouseEventHandler<HTMLAnchorElement>,
+    className: string
 }
 
-export default function Link({children, className, onClick}: LinkProps) {
+export default function Link({children, className}: LinkProps) {
     return (
         <>
-            <a className={`underline decoration-solid ${className}`} href="/dashboard" onClick={onClick}>
+            <a className={`underline decoration-solid ${className}`} href="/dashboard">
                 {children}
             </a>
         </>
