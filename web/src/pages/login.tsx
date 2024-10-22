@@ -37,7 +37,7 @@ export function Login() {
 
   return (
     <div className="flex items-center justify-center h-screen">
-      <div className="bg-indigo-700 p-8 rounded shadow-md w-96">
+      <div className="bg-blue-950 p-8 rounded shadow-md w-96">
         <h2 className="text-2xl font-bold text-center mb-6">Entrar</h2>
 
         {error && <p className="text-red-500 text-center mb-4">{error}</p>}
@@ -70,7 +70,7 @@ export function Login() {
 
           <Button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-600"
+            className="w-full bg-neutral-800 text-white py-2 rounded hover:bg-neutral-400"
           >
             Entrar
           </Button>

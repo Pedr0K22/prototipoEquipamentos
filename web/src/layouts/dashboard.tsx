@@ -11,7 +11,7 @@ const LayoutDashboard = ({children}: LayoutDashboardProps) => {
         <>
         <Nav />
 
-        <div id="content" className="p-5">
+        <div id="content" className="p-5 bg-neutral">
             {children}
         </div>
         
