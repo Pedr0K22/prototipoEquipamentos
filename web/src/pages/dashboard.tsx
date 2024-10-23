@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Setores from "./setores";
 
-
 // Interfaces para tipagem dos dados
 // interface Equipamento {
 //   nome: string;
@@ -44,7 +43,7 @@ export function Dashboard() {
 
   return (
     <div className="container mx-auto p-8">
-      <h2 className="text-4xl font-bold mb-9">Setores</h2>
+      <h2 className="text-4xl font-bold mb-9">Planta Industrial</h2>
       <Setores></Setores>
       {data.length === 0 ? (
         <p></p>
