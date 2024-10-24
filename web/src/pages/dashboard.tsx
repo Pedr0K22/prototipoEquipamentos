@@ -23,8 +23,6 @@ export function Dashboard() {
 				return;
 			}
 
-     };
-
 
 			try {
 				const response = await axios.get<Setor[]>(
@@ -39,9 +37,11 @@ export function Dashboard() {
 				console.error("Erro ao buscar dados do backend:", error);
 				setError("Erro ao carregar dados");
 			}
-		};
 
-		fetchData();
+     };
+
+
+	 fetchData();
 	}, []);
 
 	if (error) {

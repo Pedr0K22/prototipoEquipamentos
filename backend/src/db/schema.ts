@@ -9,3 +9,4 @@ export const setoresTable = pgTable('setores', {
 
 
 
+
