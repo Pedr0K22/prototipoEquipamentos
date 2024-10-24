@@ -28,17 +28,17 @@ export function Dashboard() {
         return;
       }
 
-      try {
-        const response = await axios.get<Setor[]>('http://localhost:3001/api/setores', {
-          headers: { Authorization: `Bearer ${token}` }, 
-        });
-        console.log(response.data)
-        setData(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar dados do backend:', error);
-        setError('Erro ao carregar dados');
-      }
-    };
+    //   try {
+    //     const response = await axios.get<Setor[]>('http://localhost:3001/api/setores', {
+    //       headers: { Authorization: `Bearer ${token}` }, 
+    //     });
+    //     console.log(response.data)
+    //     setData(response.data);
+    //   } catch (error) {
+    //     console.error('Erro ao buscar dados do backend:', error);
+    //     setError('Erro ao carregar dados');
+    //   }
+     };
 
     fetchData();
   }, []);
