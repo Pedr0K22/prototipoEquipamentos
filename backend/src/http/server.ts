@@ -35,5 +35,5 @@ app.register(setoresRoutes);    // Rotas públicas
 app
   .listen({ port: 3001 })
   .then(() => {
-    console.log('meu ovwdwdwdo')
+    console.log('meu ovo')
   });
