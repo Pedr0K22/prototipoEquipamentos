@@ -25,26 +25,6 @@ function ProtectedRoute({ children }: { children: JSX.Element }) {
 
 export default function App() {
 
-// 	return (
-// 		<Router>
-// 			<Routes>
-// 				<Route path="/" element={<Login />} /> {/* Página de Login */}
-// 				<Route
-// 					path="/dashboard"
-// 					element={
-// 						<ProtectedRoute>
-// 							<Dashboard />
-// 						</ProtectedRoute>
-// 					}
-// 				/>{" "}
-
-// 				{/* Página de Dashboard protegida */}
-
-//				<Route path="/teste" element={<Teste />} />
-// 			</Routes>
-// 		</Router>
-// 	);
-// }
   return (
    <Router>
      <Routes>
@@ -63,7 +43,7 @@ export default function App() {
         <Route path='/setorD' element={<SetorD/>}></Route>
         <Route path='/setorE' element={<SetorE/>}></Route>
         <Route path='/setorF' element={<SetorF/>}></Route>
-		<Route path="/teste" element={<Teste />} />
+		    <Route path="/teste" element={<Teste />} />
       </Routes>
     </Router>
  
