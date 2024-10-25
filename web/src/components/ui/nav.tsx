@@ -15,7 +15,7 @@ import Link from "./link";
 export default function Nav() {
 	return (
 		<div className="flex justify-between p-5">
-			<div className="font-black content-center">Titulo</div>
+			<div className="font-black content-center">Setores</div>
 			<div className="menu">
 				<Drawer>
 					<DrawerTrigger className="bg-transparent border hover:bg-white hover:text-black transition-all p-2 rounded-lg">
